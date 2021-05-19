@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-32^pc^0ie(nhm77ltl74_dz9gvqn*$ti(cce+0qmg0^o$@fr)m'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["galleria-ecommerce.herokuapp.com", "localhost"]
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -146,4 +147,4 @@ EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = 'theprogrammerneo@gmail.com'
 
-EMAIL_HOST_PASSWORD = '7565097460'
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
