@@ -1,0 +1,41 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Address{% endblock title %}
+{% if request.user.is_authenticated %}{% block total_in_cart %} {{items_in_cart}} {% endblock total_in_cart %}{% endif %}
+{% block main-content %}
+<div class="container mb-5">
+ <div class="row">
+ <h3>Welcome <span class="text-capitalize">{{request.user}}</span></h3>
+  <div class="col-sm-2 border-end">
+   <ul class="list-unstyled">
+    <li class="d-grid"><a href="{% url 'profile' %}" class="btn">Profile</a></li>
+    <li class="d-grid"><a href="{% url 'address' %}" class="btn {{active}}">Address</a></li>
+   </ul>
+  </div>
+  <div class="col-sm-9 offset-sm-1">
+   <div class="row">
+    {% for ad in add %}   
+    <div class="col-sm-6">
+     <div class="card" style="background-color: rgba(207, 204, 204,0.6); color: black">
+      <div class="card-body">
+       <h3>Address {{forloop.counter}}</h3>
+       <p>Name: {{ad.name}}</p>
+       <p>Mobile No.: {{ad.phone_number}}</p>
+       <p>locality: {{ad.locality}}</p>
+       <p>State: {{ad.state}}</p>
+       <p>Pin Code: {{ad.zipcode}}</p>
+      </div>
+     </div>
+    </div>
+  {% endfor %}
+   </div>
+   {% if msg %}
+      <h1 style="margin-top: 3em;color: grey;font-family:cursive">{{msg}}</h1>
+      <div style="height: 180px;"></div>
+    {% else %}
+    <div style="height: 100px;"></div>
+    {% endif %}
+  </div>
+ </div>
+</div>
+{% endblock main-content %}

@@ -1,0 +1,285 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Mens{% endblock title %}
+{% if request.user.is_authenticated %}{% block total_in_cart %} {{items_in_cart}} {% endblock total_in_cart %}{% endif %}
+
+
+
+{% block navlink-support %}
+<li class="nav-item dropdown mx-2 active" id = "navlink5">
+  <a class="nav-link dropdown-toggle text-white" onMouseOver="this.style.color='#000'"
+  onMouseOut="this.style.color='#000'" style="color: #000;" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Support
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+    <li><a class="dropdown-item" href="{% url 'delivery_information' %}"><i class="fa fa-bus mx-1"></i> Delivery Information</a></li>
+    <li><a class="dropdown-item" href="{% url 'privacy_and_policy' %}"><i class="fa fa-shopping-cart"></i> &nbsp;Privacy Policy</a></li>
+    <li><a class="dropdown-item" href="{% url 'terms_and_conditions' %}"><i class="fa fa-check-square mx-1"></i>&nbsp;Terms & Conditions</a></li>
+    <li><a class="dropdown-item" href="{% url 'about_us' %}"><i class="fa fa-user mx-1"></i>&nbsp;&nbsp;About Us</a></li>
+  </ul>
+</li>
+{% endblock navlink-support %}
+
+
+{% block main-content %}
+
+
+<link rel="stylesheet" href="{% static 'app/css/about_us.css' %}">
+<link rel="stylesheet" href="{% static 'app/css/about_us_profile.css' %}">
+
+  
+  <div id="about-main">
+    <div class="jumbotron" style="position: relative;z-index: -100;"  >
+      <div class="jumbotron-inner" >
+        <div class="top-box"  >
+          <div class="content-box">
+            <h1 style="padding-top: 100px;">
+              About Us
+            </h1>
+            <p>
+              Galleria is an e-commerce site.<br /> We provide our best services here. We are improving day by day so that we can provide everything what u need. 
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="img-layer-container">
+        <div class="team-image" id="team-image">
+          <!-- <img src="https://APIMatic.io/img/theme/aboutUs/images-1.png" /> -->
+        </div>
+  
+        <div class="circles-container">
+          <div class="img-1">
+            <img src="https://APIMatic.io/img/theme/aboutUs/Circles-1-1.svg" />
+          </div>
+          <div class="img-2">
+            <img src="https://APIMatic.io/img/theme/aboutUs/Circles-2-1.svg" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+    <div class="story-container">
+      <div class="container-divider"></div>
+      <h3 class="text-center" style="color: #074e8c;">
+        Our Team
+      </h3>
+
+    <div class="container" style="display: inline-flex;">
+        <div class="col-sm-6" style="margin-left: 100px;">
+            <div class="card card-1" data-state="#about">
+                <div class="card-header">
+                <div class="card-cover" style="background-image: url('../../static/app/images/aj2.jpg')"></div>
+                <img class="card-avatar" src="{% static 'app/images/aj2.jpg' %}" alt="avatar" />
+                <h1 class="card-fullname text-secondary">Abhishek Jaiswal</h1>
+                <h2 class="card-jobtitle text-info mt-1">Frontend & Backend Developer</h2>
+                </div>
+                <div class="card-main">
+                <div class="card-section is-active" id="about">
+                    <div class="card-content">
+                    <div class="card-subtitle text-secondary">ABOUT</div>
+                    <p class="card-desc">Whatever tattooed stumptown art party sriracha gentrify hashtag intelligentsia readymade schlitz brooklyn disrupt.
+                    </p>
+                    </div>
+                    <div class="card-social">
+                    <a href="https://www.facebook.com/profile.php?id=100004392223643" target="_blank"><box-icon type="logo" name="facebook-square"></box-icon> </a>
+                    <a href="mailto:abhishekjaiswal124@gmail.com" target="_blank"><box-icon type="logo" name="google"></box-icon> </a>
+                    <a href="https://github.com/abhishekjais-124" target="_blank"><box-icon type="logo" name="github"></box-icon> </a>
+                    <a href="https://www.linkedin.com/in/abhishek-jaiswal-749b681a3/" target="_blank"><box-icon type="logo" name="linkedin"></box-icon> </a>
+                    
+                    </div>
+                </div>
+                <div class="card-section" id="experience">
+                    <div class="card-content">
+                    <div class="card-subtitle">WORK EXPERIENCE</div>
+                    <div class="card-timeline">
+                        <div class="card-item text-info" data-year="2015">
+                        <div class="card-item-title">High School </div>
+                        <div class="card-item-desc">From Sterling Public School</div>
+                        </div>
+                        <div class="card-item text-info" data-year="2017">
+                        <div class="card-item-title">Intermediate </div>
+                        <div class="card-item-desc">From Ratna Memorial Public School, Gorakhpur, UP</div>
+                        </div>
+                        <div class="card-item text-info" data-year="2021">
+                        <div class="card-item-title">Frontend and Backend <span>Developer</span></div>
+                        <div class="card-item-desc">Pursuing Btech from IET, Lucknow</div>
+                        </div>
+                        <div class="card-item text-info" data-year="2022">
+                        <div class="card-item-title">Will complete my Graduation at <span>IET</span></div>
+                        <div class="card-item-desc">Ready to Explore..</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="card-section " id="contact" >
+                    <div class="card-content">
+                    <div class="card-subtitle">CONTACT</div>
+                    <div class="card-contact-wrapper">
+                        <div class="card-contact">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        Khadda, Kushinagar, UP
+                        </div>
+                        <div class="card-contact">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                        </svg>8563942205
+                        </div>
+                        <div class="card-contact">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <path d="M22 6l-10 7L2 6" />
+                        </svg>
+                        abhishekjaiswal124@gmail.com
+                        </div>
+                        <a href="https://drive.google.com/file/d/1vKEtBZ-SHftp10D-2KOAeLzF2L3eGiX-/view?usp=sharing" target="_blank"><button class="contact-me">SHOW RESUME</button></a>
+                    </div>
+                    </div>
+                </div>
+                <div class="card-buttons">
+                    <button id = "aboutbutton" >ABOUT</button>
+                    <button id = "experiencebutton" >EXPERIENCE</button>
+                    <button id = "contactbutton" >CONTACT</button>
+                </div>
+                </div>
+            </div>
+        
+        </div>
+        <div class="col-sm-6">
+            <div class="card card-1" data-state="#about">
+                <div class="card-header">
+                <div class="card-cover" style="background-image: url('../../static/app/images/neeraj.jpeg')"></div>
+                <img class="card-avatar" src="{% static 'app/images/neeraj.jpeg' %}" alt="avatar" />
+                <h1 class="card-fullname text-secondary" >Neeraj Sharma</h1>
+                <h2 class="card-jobtitle text-info mt-1">Frontend & Backend Developer</h2>
+                </div>
+                <div class="card-main">
+                <div class="card-section is-active" id="about1">
+                    <div class="card-content">
+                    <div class="card-subtitle text-secondary">ABOUT</div>
+                    <p class="card-desc">Whatever tattooed stumptown art party sriracha gentrify hashtag intelligentsia readymade schlitz brooklyn disrupt.
+                    </p>
+                    </div>
+                    <div class="card-social" >
+                      <a href="https://www.facebook.com/neerajsharma.sharma.1466" target="_blank"><box-icon type="logo" name="facebook-square"></box-icon> </a>
+                      <a href="mailto:neeraj246850@gmail.com" target="_blank"><box-icon type="logo" name="google"></box-icon> </a>
+                      <a href="https://github.com/programmerneo1" target="_blank"><box-icon type="logo" name="github"></box-icon> </a>
+                      <a href="https://www.linkedin.com/in/neeraj-sharma-b719741a1/" target="_blank"><box-icon type="logo" name="linkedin"></box-icon> </a>
+                    </div>
+                </div>
+                <div class="card-section" id="experience1">
+                    <div class="card-content">
+                    <div class="card-subtitle">WORK EXPERIENCE</div>
+                    <div class="card-timeline">
+                      <div class="card-item text-info" data-year="2015">
+                      <div class="card-item-title">High School </div>
+                      <div class="card-item-desc">From Savitri Vidya Vihar</div>
+                      </div>
+                      <div class="card-item text-info" data-year="2017">
+                      <div class="card-item-title">Intermediate </div>
+                      <div class="card-item-desc">From Savitri Vidya Vihar</div>
+                      </div>
+                      <div class="card-item text-info" data-year="2021">
+                      <div class="card-item-title">Frontend and Backend <span>Developer</span></div>
+                      <div class="card-item-desc">Pursuing Btech from IET, Lucknow</div>
+                      </div>
+                      <div class="card-item text-info" data-year="2022">
+                      <div class="card-item-title">Will complete my Graduation at <span>IET</span></div>
+                      <div class="card-item-desc">Ready to Explore..</div>
+                      </div>
+                  </div>
+                    </div>
+                </div>
+                <div class="card-section " id="contact1" >
+                    <div class="card-content">
+                    <div class="card-subtitle">CONTACT</div>
+                    <div class="card-contact-wrapper">
+                        <div class="card-contact">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        Basti, UP
+                        </div>
+                        <div class="card-contact">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                        </svg>7565097460
+                        </div>
+                        <div class="card-contact">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <path d="M22 6l-10 7L2 6" />
+                        </svg>
+                        neeraj246850@gmail.com
+                        </div>
+                        <a href="https://docs.google.com/document/d/1B9oN28g1CstNsGwf5xsOhUd3neMsY7K3U0FLi_F_iD4/edit?usp=sharing" target="_blank" ><button class="contact-me">SHOW RESUME</button></a>
+                    </div>
+                    </div>
+                </div>
+                <div class="card-buttons">
+                    <button id = "aboutbutton1" >ABOUT</button>
+                    <button id = "experiencebutton1" >EXPERIENCE</button>
+                    <button id = "contactbutton1" >CONTACT</button>
+                </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+
+      <div class="container-divider"></div>
+      <div class="our-tech-container">
+        <h3 class="text-center">
+          Our Technology
+        </h3>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro voluptates laborum, delectus quo at, facere non quasi quibusdam veritatis reprehenderit voluptatum enim omnis nemo? Assumenda quae magnam maiores nostrum ut. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur sapiente nostrum animi. Voluptates, pariatur unde sint inventore, iure numquam accusantium eaque non corrupti doloremque quam itaque nesciunt. Dolorum, qui inventore?
+          Unde aut exercitationem, sapiente, necessitatibus sunt officia omnis id animi perferendis, corporis velit. Sapiente debitis dicta voluptates suscipit optio est odit assumenda excepturi, quia magni rerum accusamus, nulla facilis unde.
+          Sed voluptatum impedit asperiores animi eius facere saepe, sit voluptatibus nemo quisquam dolor reiciendis deleniti accusamus qui est vitae vel quia inventore numquam sunt fugiat? Eveniet adipisci quia eaque dolore?
+          Perferendis atque eaque magni placeat ex accusantium asperiores incidunt? Doloribus qui quae nobis, in consequuntur veritatis delectus illum eligendi suscipit sequi totam dolorum fuga nemo alias quidem reiciendis nisi sint.
+          At, aspernatur. Necessitatibus omnis obcaecati cupiditate aut quod distinctio perspiciatis dolor repellat nisi voluptas earum, quia placeat quisquam assumenda nulla amet aliquid fugiat quo, neque recusandae magnam! Dolorum, est quod!
+          Molestiae reprehenderit non fugiat, minima deserunt amet. Magni iure commodi at obcaecati enim saepe blanditiis perspiciatis vitae excepturi? Aperiam temporibus perspiciatis tempora a quibusdam et quidem itaque possimus voluptas vel?
+          Id ab quos beatae quia corrupti aperiam. Doloremque impedit aliquid consequuntur totam vel corrupti ex deserunt recusandae debitis esse ad id voluptas, voluptates laborum aut, explicabo nesciunt asperiores culpa eveniet.
+          Consequuntur, qui corporis dolor incidunt eum libero quas vero facere reiciendis quia odio unde beatae quo sapiente veniam quibusdam tenetur delectus deserunt ad quae dolores numquam nisi, officia expedita! Quam.
+          Dolorum amet facere necessitatibus illo voluptatibus tempore laudantium error, tempora aut fugiat sint eveniet repellendus voluptatem veniam corporis et cupiditate iste quibusdam perferendi
+        </p>
+        <div class="img-container">
+
+        </div>
+         
+      </div>
+      <div class="container-divider"></div>
+      <div class="origin-story-container">
+        <h3 class="text-center">
+          Origin Story
+        </h3>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam commodi delectus quibusdam vero aut facere voluptas iusto qui dolorum, excepturi magnam distinctio consequuntur voluptatem praesentium sequi mollitia vel necessitatibus nihil.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nulla natus nesciunt, repellat magnam neque ex! Voluptatum eligendi hic cupiditate. Dolorem beatae delectus et ducimus itaque reiciendis voluptatem atque enim.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis vitae sint sapiente, similique nisi illum laudantium laboriosam nam incidunt tenetur omnis ipsam, sit dolores deleniti ex mollitia aliquam. Sit, facilis?
+        </p>
+      </div>
+      
+      <div class="container-divider"></div>
+    </div>
+  </div>
+
+
+
+{% endblock main-content %}

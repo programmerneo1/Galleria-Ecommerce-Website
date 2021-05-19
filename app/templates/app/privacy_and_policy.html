@@ -1,0 +1,100 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Mens{% endblock title %}
+{% if request.user.is_authenticated %}{% block total_in_cart %} {{items_in_cart}} {% endblock total_in_cart %}{% endif %}
+
+{% block navlink-support %}
+<li class="nav-item dropdown mx-2 active" id = "navlink5">
+  <a class="nav-link dropdown-toggle text-white" onMouseOver="this.style.color='#000'"
+  onMouseOut="this.style.color='#000'" style="color: #000;" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Support
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+    <li><a class="dropdown-item" href="{% url 'delivery_information' %}"><i class="fa fa-bus mx-1"></i> Delivery Information</a></li>
+    <li><a class="dropdown-item" href="{% url 'privacy_and_policy' %}"><i class="fa fa-shopping-cart"></i> &nbsp;Privacy Policy</a></li>
+    <li><a class="dropdown-item" href="{% url 'terms_and_conditions' %}"><i class="fa fa-check-square mx-1"></i>&nbsp;Terms & Conditions</a></li>
+    <li><a class="dropdown-item" href="{% url 'about_us' %}"><i class="fa fa-user mx-1"></i>&nbsp;&nbsp;About Us</a></li>
+  </ul>
+</li>
+{% endblock navlink-support %}
+
+
+{% block main-content %}
+<script>
+"use strict";
+
+$(document).ready(function () {
+  $(window).bind("scroll", function (e) {
+    parallaxScroll();
+  });
+});
+
+function parallaxScroll() {
+  const scrolled = $(window).scrollTop();
+  $("#team-image").css("top", 0 - scrolled * 0.2 + "px");
+  $(".img-1").css("top", 0 - scrolled * 0.35 + "px");
+  $(".img-2").css("top", 0 - scrolled * 0.05 + "px");
+}
+
+</script>
+
+<link rel="stylesheet" href="{% static 'app/css/about_us.css' %}">
+ 
+ 
+  <div id="about-main">
+    <div class="jumbotron"style="position: relative;z-index: -100;" >
+      <div class="jumbotron-inner">
+        <div class="top-box"  >
+          <div class="content-box">
+            <h1 style="padding-top: 100px;">
+              Privacy & Policy
+            </h1>
+            <p>
+              Lorem ipsum dolor sit amet consec.<br /> Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dolorum omnis dicta, neque cum numquam maxime consequatur.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="img-layer-container">
+        <div class="team-image" id="team-image">
+          <!-- <img src="https://APIMatic.io/img/theme/aboutUs/images-1.png" /> -->
+        </div>
+  
+        <div class="circles-container">
+          <div class="img-1">
+            <img src="https://APIMatic.io/img/theme/aboutUs/Circles-1-1.svg" />
+          </div>
+          <div class="img-2">
+            <img src="https://APIMatic.io/img/theme/aboutUs/Circles-2-1.svg" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="story-container">
+      <div class="container-divider"></div>
+      <div class="our-tech-container">
+        <h3 class="text-center">
+          Our Rules 
+        </h3>
+        <ul>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque repellat eius alias nemo vitae animi! At dicta aspernatur est perferendis incidunt, eius accusamus quae distinctio ut omnis pariatur ex consequatur.</li><br>
+            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis dolor error iure natus consequuntur minus voluptatum nemo. Fugit numquam expedita, cum id ab exercitationem laboriosam vero veritatis. Obcaecati, rerum dolorem.
+            Necessitatibus harum repudiandae molestiae ea nulla sit. Veritatis facilis iure distinctio quos officia voluptatibus ratione accusantium tempora, iusto atque quo animi reprehenderit, accusamus ducimus! Fuga maiores repellat ut adipisci in.</li><br>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque repellat eius alias nemo vitae animi! At dicta aspernatur est perferendis incidunt, eius accusamus quae distinctio ut omnis pariatur ex consequatur.</li><br>
+            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis dolor error iure natus consequuntur minus voluptatum nemo. Fugit numquam expedita, cum id ab exercitationem laboriosam vero veritatis. Obcaecati, rerum dolorem.
+            Necessitatibus harum repudiandae molestiae ea nulla sit. Veritatis facilis iure distinctio quos officia voluptatibus ratione accusantium tempora, iusto atque quo animi reprehenderit, accusamus ducimus! Fuga maiores repellat ut adipisci in.</li><br>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque repellat eius alias nemo vitae animi! At dicta aspernatur est perferendis incidunt, eius accusamus quae distinctio ut omnis pariatur ex consequatur.</li><br>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque repellat eius alias nemo vitae animi! At dicta aspernatur est perferendis incidunt, eius accusamus quae distinctio ut omnis pariatur ex consequatur.</li><br>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque repellat eius alias nemo vitae animi! At dicta aspernatur est perferendis incidunt, eius accusamus quae distinctio ut omnis pariatur ex consequatur.</li>
+            
+        </ul>
+        <div class="img-container">
+          <!-- <img src="https://Galleria.io/img/theme/cgaasIcons/cgaasProcess.gif" alt="Galleria code generation engine" class="img-responsive" />
+         -->
+         <!-- <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/UtPaD4Nf16Nw9yvGo1" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/UtPaD4Nf16Nw9yvGo1">via GIPHY</a></p> -->
+        </div>
+      </div>
+      <div class="container-divider"></div>
+      
+
+{% endblock main-content %}

@@ -1,0 +1,128 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Product Detail{% endblock title %}
+{% if request.user.is_authenticated %}{% block total_in_cart %} {{items_in_cart}} {% endblock total_in_cart %}{% endif %}
+
+{% block navlink %}
+            <li class="nav-item" id = "navlink1">
+              <a class="nav-link" style="color: #fff;"onMouseOver="this.style.color='#000'"
+              onMouseOut="this.style.color='#fff'" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            
+            <li class="nav-item " id = "navlink2">
+              <a class="nav-link" style="color: #fff;" onMouseOver="this.style.color='#000'"
+              onMouseOut="this.style.color='#fff'" href="{% url 'mens' %}">Men </a>
+            </li>
+            
+            <li class="nav-item" id = "navlink3">
+              <a class="nav-link" style="color: #fff;" onMouseOver="this.style.color='#000'"
+              onMouseOut="this.style.color='#fff'" href="{% url 'womens' %}">Women</a>
+            </li>
+            <li class="nav-item" id = "navlink4">
+              <a class="nav-link" style="color: #fff;"onMouseOver="this.style.color='#000'"
+              onMouseOut="this.style.color='#fff'" href="{% url 'deals' %}">Today's Deals</a>
+            </li>
+            <li class="nav-item dropdown mx-2" id = "navlink5">
+              <a class="nav-link dropdown-toggle text-white" onMouseOver="this.style.color='#000'"
+              onMouseOut="this.style.color='#fff'" style="color: #fff;" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Support
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                <li><a class="dropdown-item" href="">Delivery Information</a></li>
+                <li><a class="dropdown-item" href="">Privacy Policy</a></li>
+                <li><a class="dropdown-item" href="">Terms & Conditions</a></li>
+                <li><a class="dropdown-item" href="#">About Us</a></li>
+              </ul>
+            </li>
+            <li class="nav-item" id = "navlink6">
+              <a class="nav-link" style="color: #fff;" onMouseOver="this.style.color='#000'"
+              onMouseOut="this.style.color='#fff'"  href="#">Contact Us</a>
+            </li>
+            {% endblock navlink %} 
+
+ 
+{% block main-content %}
+
+<style>
+.red{
+  color: red;
+}
+.red:hover{
+  color: red;
+}
+
+.white{
+  color: grey;
+}
+
+.white:hover{
+  color: red;
+}
+</style>
+
+
+
+
+
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-6 text-center align-self-center">
+   <img src="{{ product.product_image.url }}" alt="" class="img-fluid img-thumbnail">
+  </div>
+  <div class="col-sm-5 offset-sm-1 "  >
+    <div style="position: relative;">
+    <div style="margin-top: 2em;"> <h3 style="line-height: 12px;">{{product.brand}} </h3>
+      <h4 style="color: grey;">{{product.title}}</h4></div>
+  
+   <div style="position: absolute; right:5px; top: 1px;"><a id = "p2" class="btn btn-link {{col}}" 
+     href="{% url 'wishlist' product.id %}"><i class="fas fa-heart fa-2x "></i></i></a></div>
+  </div>
+   <hr>
+   <p>{{product.description}}</p> <br>
+   <h4>Rs. {{product.discounted_price}} <small class="fw-light text-decoration-line-through">{{product.selling_price}}</small></h4> <br>
+   <div class="btn-like"></div>
+
+  {% if request.user.is_authenticated %}
+    {% if item_already_in_cart %}
+          <a href="{% url 'showcart' %}" class="btn btn-outline-warning shadow px-5 py-2 ms-4">Go to cart</a>
+    {% else %}
+    <!-- hidden form -->
+    <form action="/add-to-cart" class="d-inline">
+    <input type="hidden" name="prod_id" value={{product.id}} id = "prod_id">
+    <button type="submit" class="btn btn-outline-primary shadow px-5 py-2"> Add to Cart</button>
+    </form>
+    {% endif %}
+  {% else %}
+    <!-- hidden form -->
+    <form action="/add-to-cart" class="d-inline">
+      <input type="hidden" name="prod_id" value={{product.id}} id = "prod_id">
+      <button type="submit" class="btn btn-outline-primary shadow px-5 py-2"> Add to Cart</button>
+      </form>
+  {% endif %}
+   <a href="{% url 'checkout' %}" class="btn btn-outline-danger shadow px-5 py-2 ms-4">Buy Now</a>
+   <h5 class="mt-5">Available Offers</h5>
+   <ul>
+    <li>Bank Offer 5% Unlimited Cashback on Galleria Axis Bank Credit</li>
+    <li>Special Price Get extra ₹3000 off (price inclusive of discount)</li>
+    <li>No cost EMI ₹1,667/month. Standard EMI also available</li>
+    <li>Partner Offer ₹2000 Galleria Gift Card on Every 1000th Transaction with a new Visa Debit/Credit Card</li>
+   </ul>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
+
+{% block addscripts %}
+
+<script>
+  
+  // $("#p2").on("click", function() {
+  //   $("#p2").addClass("red");
+  //   $("#p2").style.color = "red";
+  //   console.log("Clicked");
+  // });
+
+
+  </script>
+ {% endblock addscripts %}
+

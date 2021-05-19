@@ -1,0 +1,86 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Orders{% endblock title %}
+{% if request.user.is_authenticated %}{% block total_in_cart %} 0 {% endblock total_in_cart %}{% endif %}
+{% block main-content %}
+
+
+<style>
+    @supports ((-webkit-animation: grow 0.5s cubic-bezier(0.25, 0.25, 0.25, 1) forwards) or (animation: grow 0.5s cubic-bezier(0.25, 0.25, 0.25, 1) forwards)) {
+  .tickmark {
+    stroke-opacity: 0;
+    stroke-dasharray: 29px;
+    stroke-dashoffset: 29px;
+    -webkit-animation: draw 0.5s cubic-bezier(0.25, 0.25, 0.25, 1) forwards;
+            animation: draw 0.5s cubic-bezier(0.25, 0.25, 0.25, 1) forwards;
+    -webkit-animation-delay: 0.6s;
+            animation-delay: 0.6s;
+  }
+
+  .circle {
+    fill-opacity: 0;
+    stroke: #219a00;
+    stroke-width: 16px;
+    transform-origin: center;
+    transform: scale(0);
+    -webkit-animation: grow 1s cubic-bezier(0.25, 0.25, 0.25, 1.25) forwards;
+            animation: grow 1s cubic-bezier(0.25, 0.25, 0.25, 1.25) forwards;
+  }
+}
+@-webkit-keyframes grow {
+  60% {
+    transform: scale(0.8);
+    stroke-width: 4px;
+    fill-opacity: 0;
+  }
+  100% {
+    transform: scale(0.9);
+    stroke-width: 8px;
+    fill-opacity: 1;
+    fill: #219a00;
+  }
+}
+@keyframes grow {
+  60% {
+    transform: scale(0.8);
+    stroke-width: 4px;
+    fill-opacity: 0;
+  }
+  100% {
+    transform: scale(0.9);
+    stroke-width: 8px;
+    fill-opacity: 1;
+    fill: #219a00;
+  }
+}
+@-webkit-keyframes draw {
+  0%, 100% {
+    stroke-opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw {
+  0%, 100% {
+    stroke-opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style>
+
+
+<div class="container" style="text-align: center; margin: 12em auto;">
+    <div class="svg-container">
+        <svg class="ft-green-tick" xmlns="http://www.w3.org/2000/svg" height="100" width="100" viewBox="0 0 48 48" aria-hidden="true">
+            <circle class="circle" fill="#5bb543" cx="24" cy="24" r="22" />
+            <path class="tickmark" fill="none" stroke="#FFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M14 27l5.917 4.917L34 17" />
+        </svg>
+    </div>
+    <p class="" style="font-size: larger;margin-top: 15px;">Thank You For Shopping With Us. Your Order will be received shortly.</p>
+    <p class="" style="font-size: larger;">You can check your orders <a href="{% url 'orders' %}">here.</a></p>
+</div>
+
+{% endblock main-content %}

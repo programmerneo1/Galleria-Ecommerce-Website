@@ -1,0 +1,81 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Mens{% endblock title %}
+{% if request.user.is_authenticated %}{% block total_in_cart %} {{items_in_cart}} {% endblock total_in_cart %}{% endif %}
+
+{% block navlink-support %}
+<li class="nav-item dropdown mx-2 active" id = "navlink5">
+  <a class="nav-link dropdown-toggle text-white" onMouseOver="this.style.color='#000'"
+  onMouseOut="this.style.color='#000'" style="color: #000;" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Support
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+    <li><a class="dropdown-item" href="{% url 'delivery_information' %}"><i class="fa fa-bus mx-1"></i> Delivery Information</a></li>
+    <li><a class="dropdown-item" href="{% url 'privacy_and_policy' %}"><i class="fa fa-shopping-cart"></i> &nbsp;Privacy Policy</a></li>
+    <li><a class="dropdown-item" href="{% url 'terms_and_conditions' %}"><i class="fa fa-check-square mx-1"></i>&nbsp;Terms & Conditions</a></li>
+    <li><a class="dropdown-item" href="{% url 'about_us' %}"><i class="fa fa-user mx-1"></i>&nbsp;&nbsp;About Us</a></li>
+  </ul>
+</li>
+{% endblock navlink-support %}
+
+{% block main-content %}
+
+<link rel="stylesheet" href="{% static 'app/css/about_us.css' %}">
+ 
+ 
+  <div id="about-main">
+    <div class="jumbotron" style="position: relative;z-index: -100;">
+      <div class="jumbotron-inner">
+        <div class="top-box"  >
+          <div class="content-box">
+            <h1 style="padding-top: 100px;">
+                Delivery Information
+            </h1>
+            <p>
+                Lorem ipsum dolor sit amet consec.<br /> Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dolorum omnis dicta, neque cum numquam maxime consequatur.
+              </p>
+          </div>
+        </div>
+      </div>
+      <div class="img-layer-container">
+        <div class="team-image" id="team-image">
+          <!-- <img src="https://APIMatic.io/img/theme/aboutUs/images-1.png" /> -->
+        </div>
+  
+        <div class="circles-container">
+          <div class="img-1">
+            <img src="https://APIMatic.io/img/theme/aboutUs/Circles-1-1.svg" />
+          </div>
+          <div class="img-2">
+            <img src="https://APIMatic.io/img/theme/aboutUs/Circles-2-1.svg" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="story-container mb-5">
+      <div class="container-divider"></div>
+      <div class="our-tech-container">
+        <h3 class="text-center">
+          Delivery Information
+        </h3>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro voluptates laborum, delectus quo at, facere non quasi quibusdam veritatis reprehenderit voluptatum enim omnis nemo? Assumenda quae magnam maiores nostrum ut. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur sapiente nostrum animi. Voluptates, pariatur unde sint inventore, iure numquam accusantium eaque non corrupti doloremque quam itaque nesciunt. Dolorum, qui inventore?
+          Unde aut exercitationem, sapiente, necessitatibus sunt officia omnis id animi perferendis, corporis velit. Sapiente debitis dicta voluptates suscipit optio est odit assumenda excepturi, quia magni rerum accusamus, nulla facilis unde.
+          Sed voluptatum impedit asperiores animi eius facere saepe, sit voluptatibus nemo quisquam dolor reiciendis deleniti accusamus qui est vitae vel quia inventore numquam sunt fugiat? Eveniet adipisci quia eaque dolore?
+          Perferendis atque eaque magni placeat ex accusantium asperiores incidunt? Doloribus qui quae nobis, in consequuntur veritatis delectus illum eligendi suscipit sequi totam dolorum fuga nemo alias quidem reiciendis nisi sint.
+          At, aspernatur. Necessitatibus omnis obcaecati cupiditate aut quod distinctio perspiciatis dolor repellat nisi voluptas earum, quia placeat quisquam assumenda nulla amet aliquid fugiat quo, neque recusandae magnam! Dolorum, est quod!
+          Molestiae reprehenderit non fugiat, minima deserunt amet. Magni iure commodi at obcaecati enim saepe blanditiis perspiciatis vitae excepturi? Aperiam temporibus perspiciatis tempora a quibusdam et quidem itaque possimus voluptas vel?
+          Id ab quos beatae quia corrupti aperiam. Doloremque impedit aliquid consequuntur totam vel corrupti ex deserunt recusandae debitis esse ad id voluptas, voluptates laborum aut, explicabo nesciunt asperiores culpa eveniet.
+          Consequuntur, qui corporis dolor incidunt eum libero quas vero facere reiciendis quia odio unde beatae quo sapiente veniam quibusdam tenetur delectus deserunt ad quae dolores numquam nisi, officia expedita! Quam.
+          Dolorum amet facere necessitatibus illo voluptatibus tempore laudantium error, tempora aut fugiat sint eveniet repellendus voluptatem veniam corporis et cupiditate iste quibusdam perferendi
+        </p>
+        <div class="img-container">
+          <!-- <img src="https://Galleria.io/img/theme/cgaasIcons/cgaasProcess.gif" alt="Galleria code generation engine" class="img-responsive" />
+         -->
+         <!-- <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/UtPaD4Nf16Nw9yvGo1" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/UtPaD4Nf16Nw9yvGo1">via GIPHY</a></p> -->
+         
+      </div>
+    </div>
+    </div>
+      
+{% endblock main-content %}

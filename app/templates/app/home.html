@@ -1,0 +1,152 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% if request.user.is_authenticated %}{% block total_in_cart %} {{items_in_cart}} {% endblock total_in_cart %}{% endif %}
+
+{% block navlink-home %}
+<li class="nav-item active" id = "navlink1">
+  <a class="nav-link" style="color: #000000;"onMouseOver="this.style.color='#000'"
+  onMouseOut="this.style.color='#000'" href="/">Home <span class="sr-only">(current)</span></a>
+</li>
+{% endblock navlink-home %}
+
+{% block banner_slider %}
+<!--Banner Slider-->
+ <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'app/images/Carousel3.jpg' %}" class="d-block w-100" alt="..."> 
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/Carousel2.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/Carousel1.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/Carousel44.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+<!-- End Banner Slider -->
+{% endblock banner_slider %}
+{% block main-content %}
+<link rel="stylesheet" href="{% static 'app/css/home.css' %}">
+
+<style>
+  #summer-collection.container-fluid.row.sc-media.col-md-6.col-sm-12.sc-media-bg.img{
+    background-size: cover;
+    height: 300px;
+    width: 400px;
+  }
+</style>
+
+
+
+<section id="summer-collection" style="margin-bottom: 6em;">
+  <div class="container-fluid" >
+    <div class="row" style="background-color:#fff; ">
+      <div class="sc-content">
+        <h1 style="font-size: xx-large;">summer collection</h1>
+        <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It
+          has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium eaque voluptas adipisci, voluptate temporibus cupiditate, labore nobis nesciunt velit ratione vero aut! Facilis ipsa, modi tempora nisi necessitatibus debitis soluta.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat odit nobis obcaecati modi aliquam ex laborum error consequuntur unde, libero molestiae eligendi omnis facere laboriosam ea, distinctio cumque dignissimos. Veniam!
+        </p>
+        <a href="{% url 'womens' %}">discover now</a> </div>
+      <div class="sc-media">
+        <div class="sc-media-bg " > <img src="{% static 'app/images/pexels-evg-culture-2.jpg' %}"  alt="sc-image" /> </div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="media2"><img style="height: 250px;width: 250px; margin-top: 2em; margin-left: 2em;" src="{% static 'app/images/pexels-evg-culture-2.jpg' %}"  alt="sc-image" /> </div>
+</section>
+<section id="products" style="background-color: #fff;">
+  <div class="container">
+    <div class="products-header">
+      <h2>popular products</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    </div>
+    <div class="product product-1">
+      <figure> <a href="{% url 'mens' %}"><img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412551/E-commerce%20landing%20page/products-showcase/product-1-img_3x.jpg" alt="product-image">
+      </a><figcaption>men fashion</figcaption>
+        <!-- <figcaption>$ 56.00</figcaption> -->
+      </figure>
+    </div>
+    <div class="product product-2">
+      <a href="{% url 'womens' %}"><figure> <img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412546/E-commerce%20landing%20page/products-showcase/product-2-img_3x.jpg" alt="product-image">
+      </a>  <figcaption>women fashion</figcaption>
+        <!-- <figcaption>$ 84.00</figcaption>-->
+      </figure>
+    </div>
+    <div class="product product-3">
+      <figure> <a href="{% url 'womens' %}"> <img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412550/E-commerce%20landing%20page/products-showcase/product-3-img_3x.jpg" alt="product-image">
+      </a> <figcaption>women fashion</figcaption>
+        <!-- <figcaption>$ 48.00</figcaption> -->
+      </figure>
+    </div>
+    <div class="product product-4">
+      <figure> <a href="{% url 'mens' %}"><img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412550/E-commerce%20landing%20page/products-showcase/product-4-img_3x.jpg" alt="product-image">
+      </a><figcaption>men fashion</figcaption>
+        <!-- <figcaption>$ 89.00</figcaption> -->
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="collections" style="background-color: #fff;">
+  <div class="container">
+    <div class="c-1">
+      <div class="c-1-image-holder"> <img src="{% static 'app/images/pexels-naveen-annam-2.jpg' %}" alt="image"> </div>
+    </div>
+    <div class="c-2">
+      <h2>trending collection</h2>
+    </hr>
+      <div class="c-2-image-holder"> <img class="left" src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412552/E-commerce%20landing%20page/suit-collections/collection-2-img_3x.jpg" alt=""><img class="right" src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412552/E-commerce%20landing%20page/suit-collections/collection-1-img_3x.jpg"
+         alt=""></div>
+         <a href="{% url 'deals' %}"><p class="button">view all deals</p></a>
+      
+    </div>
+  </div>
+</section>
+<section id="blog" style="margin-bottom: 0px;">
+  <div class="container">
+    <div class="blog-header">
+      <h2>Our Developers</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    </div>
+    <div class="blog-content">
+      <div class="blog-1">
+        <div class="blog-1-image-holder"> <img src="{% static 'app/images/aj2.jpg' %}" alt="image"> </div>
+        <div class="blog-1-content">
+          <h4>Abhishek Jaiswal</h4>
+          <h3>Frontend & Backend Developer</h3>
+          <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+          <a href="https://www.linkedin.com/in/abhishek-jaiswal-749b681a3/" target="_blank"><p class="button">view more</p></a>
+          
+        </div>
+      </div>
+      <div class="blog-2">
+        <div class="blog-2-image-holder"> <img src="{% static 'app/images/neeraj.jpeg' %}" alt="image"> </div>
+        <div class="blog-2-content">
+          <h4>Neeraj Sharma</h4>
+          <h3>Frontend & Backend Developer</h3>
+          <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+          <a href="https://www.linkedin.com/in/neeraj-sharma-b719741a1/" target="_blank"><p class="button">view more</p></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock main-content %}
+

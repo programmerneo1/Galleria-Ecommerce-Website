@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Orders{% endblock title %}
+{% if request.user.is_authenticated %}{% block total_in_cart %} {{items_in_cart}} {% endblock total_in_cart %}{% endif %}
+{% block main-content %}
+
+<div class="container-fluid mt-5">
+    <div class="row">
+    <div class="col-sm-2 border-end">
+    </div>
+    
+    <div class="col-sm-9 offset-sm-1">
+        {% for op in prod %}
+        {% if op %}
+    <div class="row shadow-sm mb-3">
+        <div class="col-sm-2">
+            <img src={{op.product.product_image.url}} alt="" class="img-fluid" height="150" width="150">
+        </div>
+        <div class="col-sm-4">
+            <br>
+            <h4 style="line-height: 12px;">{{op.product.brand}} </h4>
+            <h5 style="color: grey;">{{op.product.title}}</h5>
+            <br><br>
+            <h5>Rs. {{op.product.discounted_price}} <small class="fw-light text-decoration-line-through">{{op.product.selling_price}}</small></h5> <br>
+
+        </div>
+        {% if request.user.is_authenticated %}
+        <div class="col-sm-6 fw-bold" style="display: inline-flex;">
+            <form action="/add-to-cart" class="d-inline">
+                <input type="hidden" name="prod_id" value={{op.product.id}} id = "prod_id">
+                <button type="submit" class="btn btn-primary shadow px-4 py-2 mt-5"> Add to Cart</button>
+            </form>
+            <form action="/remove-from-wishlist" class="d-inline">
+                <input type="hidden" name="prod_id2" value={{op.product.id}} id = "prod_id">
+                <button type="submit" class="btn btn-danger shadow px-4 py-2 mt-5 mx-2"> Remove</button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock main-content %}

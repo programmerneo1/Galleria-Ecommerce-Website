@@ -1,0 +1,100 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Mens{% endblock title %}
+{% if request.user.is_authenticated %}{% block total_in_cart %} {{items_in_cart}} {% endblock total_in_cart %}{% endif %}
+
+
+
+{% block navlink-deals %}
+    <li class="nav-item active" id = "navlink4">
+        <a class="nav-link" style="color: #000000;"onMouseOver="this.style.color='#000'"
+        onMouseOut="this.style.color='#000000'" href="{% url 'deals' %}">Today's Deals</a>
+    </li>
+    {% endblock navlink-deals %}
+
+
+{% block main-content %}
+
+<style>
+     @media (max-width: 680px) {
+     #item1 {
+       width: 70%;
+       margin: 0 auto;
+     }
+    }
+   
+</style>
+
+
+<!-- Live Sale Section -->
+<div class="container dynamic">
+  <div class="row bg-danger text-center p-5 text-white border-bottom shadow dynamic">
+    <h1 >SALE IS LIVE NOW</h1>
+    <span>5% Instant Discount on Axis Bank Credit and Debit Card</span>
+    <small class="fw-lighter">Term and Condition Applied (For details visit Bank's official Website)</small>
+  </div>
+</div> 
+<!-- End Live Sale Section -->
+
+
+
+<!-- 1st Product Slider -->
+<div class="m-3" style="text-align: center;">
+ <h2 style="color: #161675;font-family: Georgia, 'Times New Roman', Times, serif;font-weight: 600;font-size: 2.5em;">Deals for Mens</h2>
+ <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider1">
+     {% for prod in productmens %}
+  <a href="{% url 'productdetail' prod.id %}" class="btn"><div class="item" id = "item1" ><img src={{prod.product_image.url}} alt="" height="300px"><span class="fw-bold">{{prod.brand}}</span><br><span class="fs-5">Rs. {{prod.discounted_price}}</span></div></a>
+    {% endfor %}
+</div>
+</div>
+<!-- End 1st Product Slider -->
+
+<!-- Payment Info Section -->
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+   <div class="card " >
+     <div class="card-body">
+     <img src="{% static 'app/images/payavail/cc.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/upi.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/nb.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/bj.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+ </div>
+</div>
+<!-- End Payment Info Section -->
+
+<!-- 2nd Product Slider -->
+<div class="m-3 mb-5" style="text-align: center;">
+  <h2 style="color: #161675;font-family: Georgia, 'Times New Roman', Times, serif;font-weight: 600;font-size: 2.5em;">Deals for Womens</h2>
+ <!-- Slider 2 -->
+ <div class="owl-carousel" id="slider2">
+    {% for prod in productwomens %}
+    <a href="{% url 'productdetail' prod.id %}" class="btn"><div class="item" id = "item1"><img src={{prod.product_image.url}} alt="" height="300px"><span class="fw-bold">{{prod.brand}}</span><br><span class="fs-5">Rs. {{prod.discounted_price}}</span></div></a>
+      {% endfor %}
+  </div>
+</div>
+<!-- End 2nd Product Slider -->
+
+{% endblock main-content %}
