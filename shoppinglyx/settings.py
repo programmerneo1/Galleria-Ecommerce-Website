@@ -24,10 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['SECRET_KEY']
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ["galleria-ecommerce.herokuapp.com", "localhost"]
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -151,6 +153,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'theprogrammerneo@gmail.com'
 
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+# EMAIL_HOST_PASSWORD = "7565097460"
 
 
 CLOUDINARY_STORAGE = {
