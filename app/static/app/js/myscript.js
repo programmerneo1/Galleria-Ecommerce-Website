@@ -1,5 +1,3 @@
-
-
 $('#slider1, #slider2, #slider3').owlCarousel({
     loop: true,
     margin: 20,
@@ -71,11 +69,11 @@ $('.remove-cart').click(function(){
             prod_id: id
         },
         success: function(data){
+            // console.log('hello')
             document.getElementById("amount").innerText = data.amount
             document.getElementById("totalamount").innerText = data.totalamount
             document.getElementById("shipping_amount").innerText = data.shipping_amount
             eml.parentNode.parentNode.parentNode.parentNode.remove()
-            console.log("success");
         }
     })
 })
