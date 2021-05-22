@@ -2,7 +2,7 @@
 This is a complete ecommerce website made using django in which anyone can buy his/her fashion items without any difficulty. So what are you waiting for? Click on the link and watchout the project.
 
 # Some major points
-The app is made in django(python). The website compromise of frontend and backend.
+"*" The app is made in django(python). The website compromise of frontend and backend.
 In the frontend part, the pages are controlled via view template engine, a base html page is made which consist of headers and footer and the same page is rendered on all the other pages.The contents of the new formed pages are written inside the django scriptlet tags.
 The URL are configured by urls.py which uses the view.py and their methods to render the pages.
 All the static files are stored in the static directory inside the app.
